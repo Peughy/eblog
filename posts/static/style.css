@@ -164,3 +164,11 @@ input[type=submit]{
     cursor: pointer;
     margin-top: 32px;
 }
+
+.error{
+    background-color: red;
+    border-radius: 8px;
+    padding: 16px;
+    color: white;
+    font-size: 18px;
+}

@@ -1,15 +1,19 @@
-<form action="" method="post">
+{% if messages %}
+    <p class="error"> {{ messages.content }} </p>
+{% endif %}
+<form action="{% if post %} /posts/update/ {% else %} /posts/store/{% endif %}" method="post">
+    {% csrf_token %}
     <div class="div-input">
         <label for="">Post title</label>
-        <input type="text" name="titre" id="" placeholder="Enter the post title">
+        <input type="text" name="title" id="" placeholder="Enter the post title">
     </div>
     <div class="div-input">
         <label for="">Content of post</label>
-        <textarea name="content" rows="5" id="" placeholder="Entere the post content"></textarea>
+        <textarea name="content" rows="10" id="" placeholder="Entere the post content"></textarea>
     </div>
     <div class="div-input">
         <label for="">Description / Image of post</label>
-        <input type="file">
+        <input type="file" name="image">
     </div>
 
     <input type="submit" class="input-submit" value="{% if post %} Modifier le post {% else %} Ajouter le post {% endif %}">
