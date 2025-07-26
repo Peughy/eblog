@@ -12,7 +12,7 @@
         <a href="#" class="brand">Eblog!</a> 
         <ul class="links">
             <li><a href="{% url "index" %}" class="{% if request.resolver_match.url_name == "index" %} active {% endif %}">Home</a></li>
-            <li><a href="{% url "create" %}" class="{% if request.resolver_match.url_name == "create" %} active {% endif %}">Create</a></li>
+            <li><a href="{% url "create" %}" class="{% if request.resolver_match.url_name == "create" or request.resolver_match.url_name == "edit" %} active {% endif %}">Create</a></li>
             <li><a href="">Contact</a></li>
         </ul>
         <button>Connexion</button>

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}Edit{% endblock title %}
+
+{% block body %}
+    <h1 class="title"> {% block brandtitle %}Edit the post{% endblock brandtitle %} </h1>
+    {% include "posts/form.html" %}
+
+{% endblock body %}

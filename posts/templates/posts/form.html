@@ -3,13 +3,14 @@
 {% endif %}
 <form action="{% if post %} /posts/update/ {% else %} /posts/store/{% endif %}" method="post">
     {% csrf_token %}
+    <input type="hidden" name="id" value="{% if post %} {{ post.id }} {% endif %}">
     <div class="div-input">
         <label for="">Post title</label>
-        <input type="text" name="title" id="" placeholder="Enter the post title">
+        <input type="text" name="title" id="" placeholder="Enter the post title" value="{% if post %} {{ post.title }} {% endif %}">
     </div>
     <div class="div-input">
         <label for="">Content of post</label>
-        <textarea name="content" rows="10" id="" placeholder="Entere the post content"></textarea>
+        <textarea name="content" rows="10" id="" placeholder="Entere the post content">{% if post %} {{ post.content }} {% endif %}</textarea>
     </div>
     <div class="div-input">
         <label for="">Description / Image of post</label>
