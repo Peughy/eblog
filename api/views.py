@@ -1,7 +1,9 @@
-from django.shortcuts import render
 from django.http import JsonResponse
+from posts import models
 
 
 # Create your views here.
-def api_view(request, *args, **kwargs):
-    return JsonResponse({"nom": "Cyborg", "count": 4})
+def index(request, *args, **kwargs):
+    post = models.Post.objects.all().values("id", "title", "content", "image")
+    post = list(post)
+    return JsonResponse(post, safe=False)
